@@ -1,0 +1,22 @@
+{
+  "page": "aides",
+  "url": "http://localhost:3000/aides-financieres",
+  "timestamp": "20250708_135126",
+  "wcag_level": "AA",
+  "tests": {
+    "color_contrast": { "status": "pass", "issues": 0 },
+    "keyboard_navigation": { "status": "pass", "issues": 0 },
+    "form_labels": { "status": "pass", "issues": 0 },
+    "heading_structure": { "status": "pass", "issues": 0 },
+    "alt_texts": { "status": "pass", "issues": 0 },
+    "focus_management": { "status": "pass", "issues": 0 },
+    "aria_labels": { "status": "pass", "issues": 0 },
+    "semantic_html": { "status": "pass", "issues": 0 }
+  },
+  "summary": {
+    "total_issues": 0,
+    "critical_issues": 0,
+    "warnings": 0,
+    "compliance_level": "AA"
+  }
+}

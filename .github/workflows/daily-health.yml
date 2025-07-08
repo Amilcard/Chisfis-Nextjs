@@ -1,0 +1,78 @@
+name: 🚨 Daily Health Check
+
+# Exécute un check quotidien pour détecter les problèmes
+on:
+  schedule:
+    - cron: '0 9 * * 1-5'  # Tous les jours ouvrés à 9h UTC
+  workflow_dispatch:  # Permettre exécution manuelle
+
+jobs:
+  daily-check:
+    name: 🏥 Project Health Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+        
+    - name: 📦 Install dependencies
+      run: npm ci
+      
+    - name: 🔍 Full project audit
+      run: |
+        echo "## 🏥 Daily Health Report - $(date)" >> $GITHUB_STEP_SUMMARY
+        
+        # Dependencies audit
+        echo "### 📦 Dependencies" >> $GITHUB_STEP_SUMMARY
+        if npm audit --audit-level=moderate; then
+          echo "✅ No security vulnerabilities" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "⚠️ Security vulnerabilities detected" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        # Outdated packages
+        echo "### 📅 Package Updates" >> $GITHUB_STEP_SUMMARY
+        OUTDATED=$(npm outdated --depth=0 | wc -l)
+        if [ "$OUTDATED" -gt 1 ]; then
+          echo "📊 $((OUTDATED-1)) packages can be updated" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "✅ All packages up to date" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+    - name: 🧹 Cleanup verification
+      run: |
+        if [ -f "./scripts/audit-backup-files.sh" ]; then
+          chmod +x ./scripts/audit-backup-files.sh
+          ./scripts/audit-backup-files.sh
+        fi
+        
+    - name: 🏗️ Build test
+      run: npm run build
+      env:
+        CI: true
+        
+    - name: 📊 Project metrics
+      run: |
+        echo "### 📊 Project Metrics" >> $GITHUB_STEP_SUMMARY
+        
+        # Lines of code
+        LOC=$(find src -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" | xargs wc -l | tail -1 | awk '{print $1}')
+        echo "📝 Lines of code: $LOC" >> $GITHUB_STEP_SUMMARY
+        
+        # Number of components
+        COMPONENTS=$(find src -name "*.tsx" | wc -l)
+        echo "🧩 React components: $COMPONENTS" >> $GITHUB_STEP_SUMMARY
+        
+        # Build size
+        if [ -d ".next" ]; then
+          BUILD_SIZE=$(du -sh .next | cut -f1)
+          echo "📦 Build size: $BUILD_SIZE" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "✅ **Health check completed**" >> $GITHUB_STEP_SUMMARY

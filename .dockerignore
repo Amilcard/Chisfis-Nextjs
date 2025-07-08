@@ -1,0 +1,37 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js
+.next/
+out/
+build/
+
+# Backups et fichiers temporaires
+backups/
+backup/
+src/backups/
+src/backup/
+*.bak
+*.tmp
+*.old
+*_backup/
+*_old/
+temp/
+tmp/
+
+# Git
+.git/
+.gitignore
+
+# Documentation et scripts
+*.md
+scripts/
+*.sh
+
+# Logs et caches
+*.log
+.DS_Store
+.env*.local

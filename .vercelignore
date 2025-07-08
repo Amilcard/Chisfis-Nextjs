@@ -1,0 +1,25 @@
+# Backups et fichiers temporaires
+backups/
+backup/
+src/backups/
+src/backup/
+*.bak
+*.tmp
+*.old
+*_backup/
+*_old/
+temp/
+tmp/
+
+# Documentation et scripts de développement
+CLEANUP_DOCUMENTATION.md
+AUDIT_UI_REPORT.md
+CORRECTION_TRACKING.md
+scripts/
+*.sh
+*.md
+
+# Fichiers de test et développement
+test-deps.js
+validation-finale.sh
+demo-*.sh

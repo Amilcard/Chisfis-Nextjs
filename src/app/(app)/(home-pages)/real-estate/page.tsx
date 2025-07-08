@@ -124,7 +124,7 @@ async function Home() {
         <SectionDowloadApp />
         <div>
           <HeadingWithSub subheading="Explore the best places to stay in the world.">
-            Let&apos;s go on an adventure
+            Let's go on an adventure
           </HeadingWithSub>
           <SectionSliderNewCategories categoryCardType="card4" categories={categories.slice(0, 7)} />
         </div>

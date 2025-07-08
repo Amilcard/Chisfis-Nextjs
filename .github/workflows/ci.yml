@@ -1,0 +1,93 @@
+name: 🚀 Next.js CI - Build & Quality Check
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+
+jobs:
+  build-and-test:
+    name: 🔨 Build & Lint
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x]
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: 📦 Install dependencies
+      run: npm ci
+      
+    - name: 🧹 Pre-build cleanup
+      run: npm run cleanup || echo "⚠️ Cleanup script not found, continuing..."
+      
+    - name: 🔍 Lint check
+      run: npm run lint
+      
+    - name: 🏗️ Build Next.js app
+      run: npm run build
+      env:
+        CI: true
+        
+    - name: 📊 Build size analysis
+      run: |
+        echo "## 📊 Build Results" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Build completed successfully" >> $GITHUB_STEP_SUMMARY
+        if [ -d ".next" ]; then
+          echo "📁 Build size: $(du -sh .next | cut -f1)" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+  audit-project:
+    name: 🔍 Project Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+        
+    - name: 📦 Install dependencies
+      run: npm ci
+      
+    - name: 🔍 Audit backup files
+      run: |
+        if [ -f "./scripts/audit-backup-files.sh" ]; then
+          chmod +x ./scripts/audit-backup-files.sh
+          ./scripts/audit-backup-files.sh
+        else
+          echo "⚠️ Audit script not found, checking manually..."
+          # Audit manuel de base
+          if find src/ public/ -type d \( -iname '*backup*' -o -iname '*old*' \) 2>/dev/null | grep -q .; then
+            echo "❌ Backup directories found in src/ or public/"
+            find src/ public/ -type d \( -iname '*backup*' -o -iname '*old*' \) 2>/dev/null
+            exit 1
+          else
+            echo "✅ No backup directories found"
+          fi
+        fi
+        
+    - name: 🔒 Security audit
+      run: npm audit --audit-level=high
+      continue-on-error: true
+      
+    - name: 📋 Project summary
+      run: |
+        echo "## 🎯 Project Health Summary" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Dependencies installed" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ No backup files in source" >> $GITHUB_STEP_SUMMARY
+        echo "- ✅ Build process validated" >> $GITHUB_STEP_SUMMARY

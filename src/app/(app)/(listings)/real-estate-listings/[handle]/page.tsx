@@ -195,7 +195,7 @@ const Page = async ({ params }: { params: Promise<{ handle: string }> }) => {
       <div className="listingSection__wrap">
         <div>
           <SectionHeading>Property features</SectionHeading>
-          <SectionSubheading>About the property&apos;s amenities and services</SectionSubheading>
+          <SectionSubheading>About the property's amenities and services</SectionSubheading>
         </div>
         <Divider className="w-14!" />
 

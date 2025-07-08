@@ -38,6 +38,25 @@
   --color-neutral-700: rgb(55, 65, 81);
   --color-neutral-800: rgb(31, 41, 55);
   --color-neutral-900: rgb(17, 24, 39);
+
+  /* Couleurs de marque InKlusif */
+  --color-brand-dark: rgb(46, 64, 83);
+  --color-brand-green: rgb(0, 212, 156);
+  --color-brand-grey: rgb(189, 195, 199);
+
+  /* Polices personnalisées avec variables CSS */
+  --font-family-sans: var(--font-roboto), Roboto, sans-serif;
+  --font-family-display: var(--font-nunito), Nunito, sans-serif;
+
+  /* Tailles de police personnalisées */
+  --font-size-h1: 48px;
+  --line-height-h1: 56px;
+  --font-size-h2: 32px;
+  --line-height-h2: 40px;
+  --font-size-h3: 24px;
+  --line-height-h3: 32px;
+  --font-size-h4: 20px;
+  --line-height-h4: 28px;
 }
 
 @layer base {

@@ -52,7 +52,7 @@ async function Home() {
         />
 
         <div>
-          <HeadingWithSub subheading="Keep calm & travel on">Let&apos;s go on an adventure</HeadingWithSub>
+          <HeadingWithSub subheading="Keep calm & travel on">Let's go on an adventure</HeadingWithSub>
           <SectionSliderNewCategories
             itemClassName="w-[17rem] lg:w-1/3 xl:w-1/4"
             categories={categories}

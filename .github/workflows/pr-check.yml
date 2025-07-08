@@ -1,0 +1,79 @@
+name: 🔍 PR Quality Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pr-check:
+    name: 🧪 PR Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout PR
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+        
+    - name: 📦 Install dependencies
+      run: npm ci
+      
+    - name: 🧹 Pre-build cleanup
+      run: |
+        if [ -f "./scripts/prebuild-cleanup.sh" ]; then
+          chmod +x ./scripts/prebuild-cleanup.sh
+          ./scripts/prebuild-cleanup.sh
+        fi
+        
+    - name: 🔍 Comprehensive audit
+      run: |
+        echo "## 🔍 PR Quality Report" >> $GITHUB_STEP_SUMMARY
+        
+        # Check for backup files
+        if [ -f "./scripts/audit-backup-files.sh" ]; then
+          chmod +x ./scripts/audit-backup-files.sh
+          if ./scripts/audit-backup-files.sh; then
+            echo "✅ No backup files detected" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Backup files found - please clean" >> $GITHUB_STEP_SUMMARY
+          fi
+        fi
+        
+        # Check for large files
+        echo "### 📁 Large Files Check" >> $GITHUB_STEP_SUMMARY
+        if find . -size +5M -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./.next/*" | grep -q .; then
+          echo "⚠️ Large files detected:" >> $GITHUB_STEP_SUMMARY
+          find . -size +5M -not -path "./node_modules/*" -not -path "./.git/*" -not -path "./.next/*" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "✅ No large files" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+    - name: 🔧 ESLint check
+      run: npm run lint
+      
+    - name: 🏗️ Build verification
+      run: npm run build
+      env:
+        CI: true
+        
+    - name: 📊 Bundle analysis
+      run: |
+        echo "### 📊 Build Analysis" >> $GITHUB_STEP_SUMMARY
+        if [ -d ".next" ]; then
+          BUILD_SIZE=$(du -sh .next | cut -f1)
+          echo "📦 Build size: $BUILD_SIZE" >> $GITHUB_STEP_SUMMARY
+          
+          # Count pages
+          if [ -d ".next/server/pages" ] || [ -d ".next/server/app" ]; then
+            PAGE_COUNT=$(find .next/server -name "*.js" -o -name "*.html" | wc -l)
+            echo "📄 Pages generated: $PAGE_COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
+        fi
+        
+        echo "✅ **PR Ready for Review**" >> $GITHUB_STEP_SUMMARY

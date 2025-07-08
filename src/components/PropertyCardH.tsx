@@ -46,7 +46,7 @@ const PropertyCardH: FC<PropertyCardHProps> = ({ className = '', data }) => {
           href={listingHref}
         />
 
-        {saleOff && <SaleOffBadge className="absolute start-5 top-5 bg-orange-500!" />}
+        {saleOff && <SaleOffBadge className="absolute start-5 top-5 bg-brand-green!" />}
       </div>
     )
   }

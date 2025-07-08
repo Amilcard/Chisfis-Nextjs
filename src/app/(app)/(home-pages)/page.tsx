@@ -1,107 +1,91 @@
-import BackgroundSection from '@/components/BackgroundSection'
-import BgGlassmorphism from '@/components/BgGlassmorphism'
-import HeroSectionWithSearchForm1 from '@/components/hero-sections/HeroSectionWithSearchForm1'
-import HeroSearchForm from '@/components/HeroSearchForm/HeroSearchForm'
-import SectionBecomeAnAuthor from '@/components/SectionBecomeAnAuthor'
-import SectionClientSay from '@/components/SectionClientSay'
-import SectionGridAuthorBox from '@/components/SectionGridAuthorBox'
-import SectionGridCategoryBox from '@/components/SectionGridCategoryBox'
-import SectionGridFeaturePlaces from '@/components/SectionGridFeaturePlaces'
-import SectionHowItWork from '@/components/SectionHowItWork'
-import SectionOurFeatures from '@/components/SectionOurFeatures'
-import SectionSliderNewCategories from '@/components/SectionSliderNewCategories'
-import SectionSubscribe2 from '@/components/SectionSubscribe2'
-import SectionVideos from '@/components/SectionVideos'
-import { getAuthors } from '@/data/authors'
-import { getStayCategories } from '@/data/categories'
-import { getStayListings } from '@/data/listings'
-import heroImage from '@/images/hero-right.png'
-import ButtonPrimary from '@/shared/ButtonPrimary'
-import { Divider } from '@/shared/divider'
-import HeadingWithSub from '@/shared/Heading'
-import { Metadata } from 'next'
+// src/app/(app)/(home-pages)/page.tsx
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Home',
-  description: 'Home page of the Stay application',
-}
+import React, { useEffect } from 'react';
+import FeatureCard from '@/components/FeatureCard';
+import CategoryExplorer from '@/components/CategoryExplorer';
+import ActivityCarousel from '@/components/ActivityCarousel';
+import { fetchActivities } from '@/services/activityService';
+import useRandomActivity from '@/hooks/useRandomActivity';
 
-async function Page() {
-  const categories = await getStayCategories()
-  const stayListings = await getStayListings()
-  const authors = await getAuthors()
+export default function HomePage() {
+  const { activity, fetchRandomActivity } = useRandomActivity();
+
+  useEffect(() => {
+    fetchRandomActivity();
+  }, []);
 
   return (
-    <main className="relative overflow-hidden">
-      <BgGlassmorphism />
-      <div className="relative container mb-24 flex flex-col gap-y-24 lg:mb-28 lg:gap-y-32">
-        <HeroSectionWithSearchForm1
-          heading="Hotel, car, experiences"
-          image={heroImage}
-          imageAlt="hero"
-          searchForm={<HeroSearchForm initTab="Stays" />}
-          description={
-            <>
-              <p className="max-w-xl text-base text-neutral-500 sm:text-xl dark:text-neutral-400">
-                With us, your trip is filled with amazing experiences.
-              </p>
-              <ButtonPrimary href={'/stay-categories/all'} className="sm:text-base/normal">
-                Start your search
-              </ButtonPrimary>
-            </>
-          }
-        />
-
-        <div>
-          <HeadingWithSub subheading="Explore the best places to stay in the world.">
-            Let&apos;s go on an adventure
-          </HeadingWithSub>
-          <SectionSliderNewCategories categoryCardType="card3" categories={categories.slice(0, 7)} />
-        </div>
-
-        <SectionOurFeatures className="py-14" />
-        <SectionGridFeaturePlaces stayListings={stayListings} cardType="card2" />
-        <Divider />
-        <SectionHowItWork />
-        <div className="relative py-20">
-          <BackgroundSection />
-          <HeadingWithSub isCenter subheading="Keep calm & travel on">
-            Become a host
-          </HeadingWithSub>
-          <SectionGridAuthorBox authors={authors} />
-        </div>
-        <SectionSubscribe2 />
-        <Divider />
-
-        <div>
-          <HeadingWithSub isCenter subheading={'Great places near where you live'}>
-            Explore nearby
-          </HeadingWithSub>
-          <SectionGridCategoryBox categories={categories.slice(0, 8)} />
-        </div>
-
-        <div className="relative py-16">
-          <BackgroundSection />
-          <SectionBecomeAnAuthor />
-        </div>
-
-        <div>
-          <HeadingWithSub subheading="Explore houses based on 10 types of stays">
-            Explore by types of stays.
-          </HeadingWithSub>
-          <SectionSliderNewCategories
-            itemClassName="w-[17rem] lg:w-1/3 xl:w-1/4"
-            categories={categories.slice(7, 16)}
-            categoryCardType="card5"
+    <main className="pt-8 px-6">
+      {/* Feature Cards */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <FeatureCard
+            icon="💰"
+            title="Aides financières"
+            description="Découvrez les aides disponibles selon votre situation"
+            href="/aides-financieres"
           />
-        </div>
-        <SectionVideos />
-        <div className="relative py-16">
-          <SectionClientSay />
-        </div>
-      </div>
-    </main>
-  )
-}
+          <FeatureCard
+            icon="🚲"
+            title="Éco-mobilité"
+            description="Proposez des trajets responsables et réduisez votre empreinte"
+            href="/eco-mobilite"
+          />
+          <FeatureCard
+            icon="🤝"
+            title="Inclusion"
+            description="Activités accessibles à tous et accompagnement dédié"
+            href="/inclusivite"
+          />
+        </section>
 
-export default Page
+        {/* Explorer par catégorie */}
+        <section className="mb-12 bg-brand-grey/5 py-8 px-6 rounded-xl">
+          <h2 className="text-h2 font-bold mb-6 text-brand-dark">
+            Explorez par catégorie
+          </h2>
+          <CategoryExplorer
+            categories={[
+              { icon: '⚽️', label: 'Sport', href: '/search?category=sport' },
+              { icon: '🎨', label: 'Culture', href: '/search?category=culture' },
+              { icon: '🎲', label: 'Ludique', href: '/search?category=game' },
+              { icon: '🌳', label: 'Nature', href: '/search?category=nature' },
+            ]}
+          />
+        </section>
+
+        {/* Activités près de chez vous */}
+        <section className="mb-12 bg-brand-grey/5 py-8 px-6 rounded-xl">
+          <h2 className="text-h2 font-bold mb-6 text-brand-dark">
+            Activités près de chez vous
+          </h2>
+          <ActivityCarousel
+            fetchFn={() => fetchActivities({ nearMe: true })}
+            emptyMessage="Aucune activité à proximité."
+          />
+        </section>
+
+        {/* Activités à petits prix */}
+        <section className="mb-12 bg-brand-grey/5 py-8 px-6 rounded-xl">
+          <h2 className="text-h2 font-bold mb-6 text-brand-dark">
+            Activités à petits prix
+          </h2>
+          <ActivityCarousel
+            fetchFn={() => fetchActivities({ maxPrice: 20 })}
+            emptyMessage="Pas d'offres à ce tarif."
+          />
+        </section>
+
+        {/* Activités en vedette */}
+        <section className="mb-12 bg-brand-grey/5 py-8 px-6 rounded-xl">
+          <h2 className="text-h2 font-bold mb-6 text-brand-dark">
+            Activités en vedette
+          </h2>
+          <ActivityCarousel
+            fetchFn={() => fetchActivities({ featured: true })}
+            emptyMessage="Aucune activité en vedette."
+          />
+        </section>
+      </main>
+  );
+}

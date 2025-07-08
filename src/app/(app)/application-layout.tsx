@@ -1,5 +1,5 @@
 import Footer2 from '@/components/Footer2'
-import FooterQuickNavigation from '@/components/FooterQuickNavigation'
+import BottomNavigation from '@/components/BottomNavigation'
 import Header from '@/components/Header/Header'
 import HeroSearchFormMobile from '@/components/HeroSearchFormMobile/HeroSearchFormMobile'
 import Aside from '@/components/aside'
@@ -26,8 +26,8 @@ const ApplicationLayout: React.FC<Props> = ({ children, header }) => {
       {/*  */}
       {children}
       {/*  */}
-      {/* FooterQuickNavigation - Displays on mobile devices and is fixed at the bottom of the screen */}
-      <FooterQuickNavigation />
+      {/* BottomNavigation - Navigation fixe en bas d'écran pour mobile */}
+      <BottomNavigation />
       {/* Chose footer style here!!!! */}
       <Footer2 /> {/* <Footer /> or <Footer2 /> or <Footer3 /> or <Footer4 />*/}
       {/*  */}

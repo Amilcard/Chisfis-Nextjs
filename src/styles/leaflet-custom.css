@@ -1,0 +1,44 @@
+/* Personnalisation des popups Leaflet */
+.leaflet-popup-content-wrapper {
+  @apply rounded-xl border-0 shadow-lg;
+}
+
+.leaflet-popup-content {
+  @apply p-0 m-0;
+}
+
+.leaflet-popup-tip {
+  @apply shadow-lg;
+}
+
+.leaflet-popup-close-button {
+  @apply text-neutral-500 hover:text-neutral-700 text-xl font-bold;
+  top: 8px !important;
+  right: 8px !important;
+}
+
+/* Personnalisation des contrôles */
+.leaflet-control-zoom {
+  @apply border-0 shadow-lg;
+}
+
+.leaflet-control-zoom a {
+  @apply bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-0 hover:bg-neutral-50 dark:hover:bg-neutral-700;
+}
+
+/* Attribution */
+.leaflet-control-attribution {
+  @apply bg-white/80 dark:bg-neutral-800/80 text-xs;
+}
+
+/* Markers */
+.leaflet-marker-icon {
+  filter: hue-rotate(200deg) saturate(120%);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .leaflet-popup-content-wrapper {
+    max-width: 250px !important;
+  }
+}

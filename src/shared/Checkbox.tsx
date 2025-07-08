@@ -86,7 +86,7 @@ const colors = {
   zinc: '[--checkbox-check:var(--color-white)] [--checkbox-checked-bg:var(--color-neutral-600)] [--checkbox-checked-border:var(--color-neutral-700)]/90',
   red: '[--checkbox-check:var(--color-white)] [--checkbox-checked-bg:var(--color-red-600)] [--checkbox-checked-border:var(--color-red-700)]/90',
   orange:
-    '[--checkbox-check:var(--color-white)] [--checkbox-checked-bg:var(--color-orange-500)] [--checkbox-checked-border:var(--color-orange-600)]/90',
+    '[--checkbox-check:var(--color-white)] [--checkbox-checked-bg:var(--color-green-500)] [--checkbox-checked-border:var(--color-green-600)]/90',
   amber:
     '[--checkbox-check:var(--color-amber-950)] [--checkbox-checked-bg:var(--color-amber-400)] [--checkbox-checked-border:var(--color-amber-500)]/80',
   yellow:

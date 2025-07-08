@@ -34,3 +34,30 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Backups, archives et fichiers temporaires (JAMAIS dans /src)
+backups/
+backup/
+src/backups/
+src/backup/
+*.bak
+*.tmp
+*.old
+*_backup/
+*_old/
+temp/
+tmp/
+
+# Auth module temporary files
+test-deps.js
+check-deps.sh
+install-auth-deps.sh
+start-dev.sh
+INSTALLATION_INSTRUCTIONS.md
+
+# CI/CD et fichiers de développement
+*.log
+.coverage/
+.nyc_output/
+junit.xml
+coverage/

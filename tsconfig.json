@@ -12,15 +12,21 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+
+    // 🌟 Ajout de baseUrl pour que les paths fonctionnent
+    "baseUrl": ".",
+
+    // 🌟 Alias @/* → ./src/*
+    "paths": {
+      "@/*": ["src/*"]
+    },
+
+    "target": "ES2017",
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "target": "ES2017"
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

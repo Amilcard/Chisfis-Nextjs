@@ -99,9 +99,9 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
           It is a long established fact that a <strong>reader</strong> will be distracted by the readable content of a
           page when looking at its <strong>layout</strong>. The point of using Lorem Ipsum is that it has a more-or-less
           normal{' '}
-          <a href="/#" target="_blank" rel="noopener noreferrer">
+          <Link href="/#" target="_blank" rel="noopener noreferrer">
             distribution of letters.
-          </a>{' '}
+          </Link>{' '}
         </p>
         <ol>
           <li>We want everything to look good out of the box.</li>
@@ -149,8 +149,8 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
         <p>{`And that's the end of this section.`}</p>
         <h2>Code should look okay by default.</h2>
         <p>
-          I think most people are going to use <a href="https://highlightjs.org/">highlight.js</a> or{' '}
-          <a href="https://prismjs.com/">Prism</a>{' '}
+          I think most people are going to use <Link href="https://highlightjs.org/">highlight.js</Link> or{' '}
+          <Link href="https://prismjs.com/">Prism</Link>{' '}
           {`or something if they want to
           style their code blocks but it wouldn't hurt to make them look`}{' '}
           <em>okay</em> out of the box, even with no syntax highlighting.
@@ -200,7 +200,7 @@ export default async function Page({ params }: { params: Promise<{ handle: strin
           <div className="ml-3 flex max-w-lg flex-col gap-y-1 sm:ml-5">
             <span className="text-xs tracking-wider text-neutral-400 uppercase">written by</span>
             <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-200">
-              <a href="#">{author?.name}</a>
+              <Link href="#">{author?.name}</Link>
             </h2>
             <span className="text-sm text-neutral-500 sm:text-base dark:text-neutral-300">{author?.description}</span>
           </div>

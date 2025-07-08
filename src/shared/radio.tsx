@@ -89,7 +89,7 @@ const colors = {
   zinc: '[--radio-checked-indicator:var(--color-white)] [--radio-checked-bg:var(--color-neutral-600)] [--radio-checked-border:var(--color-neutral-700)]/90',
   red: '[--radio-checked-indicator:var(--color-white)] [--radio-checked-bg:var(--color-red-600)] [--radio-checked-border:var(--color-red-700)]/90',
   orange:
-    '[--radio-checked-indicator:var(--color-white)] [--radio-checked-bg:var(--color-orange-500)] [--radio-checked-border:var(--color-orange-600)]/90',
+    '[--radio-checked-indicator:var(--color-white)] [--radio-checked-bg:var(--color-green-500)] [--radio-checked-border:var(--color-green-500)]/90',
   amber:
     '[--radio-checked-bg:var(--color-amber-400)] [--radio-checked-border:var(--color-amber-500)]/80 [--radio-checked-indicator:var(--color-amber-950)]',
   yellow:

@@ -150,7 +150,7 @@ export const FlightSearchForm: FC<Props> = ({ className, formStyle = 'default' }
                   onClick={() => {
                     setFlightClassState(item.name)
                   }}
-                  className="-m-3 flex cursor-pointer items-center rounded-lg p-2 text-sm font-medium hover:bg-gray-50 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-orange-500/50 dark:hover:bg-gray-700"
+                  className="-m-3 flex cursor-pointer items-center rounded-lg p-2 text-sm font-medium hover:bg-gray-50 focus:outline-hidden focus-visible:ring-3 focus-visible:ring-brand-green/50 dark:hover:bg-gray-700"
                 >
                   {item.name}
                 </Headless.CloseButton>

@@ -20,7 +20,7 @@ const StartRating: FC<StartRatingProps> = ({ className, point = 4.5, reviewCount
       )}
     >
       <div className="pb-0.5">
-        <StarIcon className={clsx('text-orange-400', size === 'lg' && 'size-5', size === 'md' && 'size-4')} />
+        <StarIcon className={clsx('text-yellow-400', size === 'lg' && 'size-5', size === 'md' && 'size-4')} />
       </div>
       <span className="font-medium">{point}</span>
       <span className="text-neutral-500 dark:text-neutral-400">({reviewCount})</span>

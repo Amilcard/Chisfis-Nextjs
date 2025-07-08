@@ -43,7 +43,8 @@ export const StaySearchForm = ({ className, formStyle = 'default' }: Props) => {
       )}
       action={handleFormSubmit}
     >
-      <LocationInputField className="hero-search-form__field-after flex-5/12" fieldStyle={formStyle} />
+      {/* Removed location, date, and guest fields while preserving form layout */}
+      {/* <LocationInputField className="hero-search-form__field-after flex-5/12" fieldStyle={formStyle} />
       <VerticalDividerLine />
       <DateRangeField
         className="hero-search-form__field-before hero-search-form__field-after flex-4/12"
@@ -54,7 +55,7 @@ export const StaySearchForm = ({ className, formStyle = 'default' }: Props) => {
         className="hero-search-form__field-before flex-4/12"
         clearDataButtonClassName={clsx(formStyle === 'small' && 'sm:end-18', formStyle === 'default' && 'sm:end-22')}
         fieldStyle={formStyle}
-      />
+      /> */}
 
       <ButtonSubmit fieldStyle={formStyle} className="z-10" />
     </Form>

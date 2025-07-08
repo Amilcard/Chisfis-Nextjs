@@ -27,7 +27,7 @@ const PageHeading = () => {
   const pathname = usePathname()
 
   // get the number from the end of pathname
-  const index = pathname.match(/\d+$/) ? parseInt(pathname.match(/\d+$/)?.[0] || '1') : 1
+  const index = pathname?.match(/\d+$/) ? parseInt(pathname.match(/\d+$/)?.[0] || '1') : 1
 
   return (
     <div>

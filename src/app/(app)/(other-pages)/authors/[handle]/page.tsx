@@ -111,9 +111,9 @@ const Page = async ({ params }: { params: Promise<{ handle: string }> }) => {
     return (
       <div className="listingSection__wrap">
         <div>
-          <h2 className="text-2xl font-semibold">{displayName}&apos;s listings</h2>
+          <h2 className="text-2xl font-semibold">{displayName}'s listings</h2>
           <span className="mt-2 block text-neutral-500 dark:text-neutral-400">
-            {displayName}&apos;s listings is very rich, 5 star reviews help him to be more branded.
+            {displayName}'s listings is very rich, 5 star reviews help him to be more branded.
           </span>
         </div>
         <Divider className="w-14!" />
