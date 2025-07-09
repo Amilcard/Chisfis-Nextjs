@@ -4,11 +4,13 @@
   "version": "2.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "npm run prebuild && next build",
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "dev:front": "npm run dev --prefix frontend",
+    "dev:back": "npm run dev --prefix backend",
+    "build": "npm run prebuild && cd frontend && npm run build",
     "build:clean": "npm run cleanup && npm run build",
-    "start": "next start",
-    "lint": "next lint",
+    "start": "concurrently \"npm run start --prefix backend\" \"npm run start --prefix frontend\"",
+    "lint": "npm run lint --prefix frontend",
     "prebuild": "node -e \"console.log('🧹 Nettoyage pre-build...')\" && ./scripts/prebuild-cleanup.sh",
     "cleanup": "./scripts/prebuild-cleanup.sh",
     "audit:backup": "./scripts/audit-backup-files.sh",
@@ -80,6 +82,7 @@
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "concurrently": "^8.0.0",
     "@tailwindcss/postcss": "^4.1.5",
     "@types/bcryptjs": "^2.4.6",
     "@types/leaflet": "^1.9.19",
