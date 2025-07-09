@@ -61,3 +61,4 @@ INSTALLATION_INSTRUCTIONS.md
 .nyc_output/
 junit.xml
 coverage/
+scripts/prebuild-cleanup.sh
