@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { Child, ChildFormData } from 'frontend/src/types/child'
-import ChildForm from 'frontend/src/components/Profile/ChildForm'
-import ChildCard from 'frontend/src/components/Profile/ChildCard'
+import ChildForm from '@/components/Profile/ChildForm'
+import ChildCard from '@/components/Profile/ChildCard'
 import childrenService from 'frontend/src/lib/children-service'
 import ButtonPrimary from 'frontend/src/shared/ButtonPrimary'
 

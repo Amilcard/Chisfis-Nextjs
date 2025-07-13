@@ -13,7 +13,7 @@ import {
   WaterEnergyIcon,
   WaterPoloIcon,
   Wifi01Icon,
-} from 'frontend/src/components/Icons'
+} from '@/components/Icons'
 import { getListingReviews } from 'frontend/src/data/data'
 import { getStayListingByHandle } from 'frontend/src/data/listings'
 import ButtonPrimary from 'frontend/src/shared/ButtonPrimary'

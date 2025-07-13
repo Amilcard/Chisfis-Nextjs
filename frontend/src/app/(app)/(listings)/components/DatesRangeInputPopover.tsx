@@ -1,7 +1,7 @@
 'use client'
 
-import DatePickerCustomDay from 'frontend/src/components/DatePickerCustomDay'
-import DatePickerCustomHeaderTwoMonth from 'frontend/src/components/DatePickerCustomHeaderTwoMonth'
+import DatePickerCustomDay from '@/components/DatePickerCustomDay'
+import DatePickerCustomHeaderTwoMonth from '@/components/DatePickerCustomHeaderTwoMonth'
 import T from 'frontend/src/utils/getT'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { CalendarIcon, XMarkIcon } from '@heroicons/react/24/outline'

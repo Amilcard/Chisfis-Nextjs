@@ -1,4 +1,4 @@
-import StartRating from 'frontend/src/components/StartRating'
+import StartRating from '@/components/StartRating'
 import { getListingReviews } from 'frontend/src/data/data'
 import { getExperienceListingByHandle } from 'frontend/src/data/listings'
 import ButtonPrimary from 'frontend/src/shared/ButtonPrimary'

@@ -1,7 +1,8 @@
 'use client'
 
 import { APIProvider } from '@vis.gl/react-google-maps'
-import { createContext, useCallback, useEffect, useState } from 'react'
+import React, { createContext, useCallback, useEffect, useState } from 'react'
+import SwitchDarkMode2 from '@/shared/SwitchDarkMode2'
 
 interface ThemeContextValue {
   isDarkMode: boolean
@@ -10,7 +11,10 @@ interface ThemeContextValue {
   setThemeDir: (value: 'rtl' | 'ltr') => void
 }
 
-export const ThemeContext = createContext<ThemeContextValue | null>(null)
+export const ThemeContext = React.createContext<{
+  isDarkMode: boolean
+  toggleDarkMode: () => void
+} | undefined>(undefined)
 
 export default function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false)

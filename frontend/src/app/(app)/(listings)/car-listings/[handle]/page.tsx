@@ -1,7 +1,7 @@
 import { getListingReviews } from 'frontend/src/data/data'
 import { getCarListingByHandle } from 'frontend/src/data/listings'
 
-import StartRating from 'frontend/src/components/StartRating'
+import StartRating from '@/components/StartRating'
 import ButtonPrimary from 'frontend/src/shared/ButtonPrimary'
 import { DescriptionDetails, DescriptionList, DescriptionTerm } from 'frontend/src/shared/description-list'
 import { Divider } from 'frontend/src/shared/divider'

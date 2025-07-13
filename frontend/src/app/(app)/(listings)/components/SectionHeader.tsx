@@ -1,5 +1,5 @@
-import LikeSaveBtns from 'frontend/src/components/LikeSaveBtns'
-import StartRating from 'frontend/src/components/StartRating'
+import LikeSaveBtns from '@/components/LikeSaveBtns'
+import StartRating from '@/components/StartRating'
 import { Badge } from 'frontend/src/shared/Badge'
 import { Divider } from 'frontend/src/shared/divider'
 import { Location06Icon } from '@hugeicons/core-free-icons'

@@ -1,4 +1,4 @@
-import SectionSubscribe2 from 'frontend/src/components/SectionSubscribe2'
+import SectionSubscribe2 from '@/components/SectionSubscribe2'
 import ButtonPrimary from 'frontend/src/shared/ButtonPrimary'
 import { Divider } from 'frontend/src/shared/divider'
 import { Field, Label } from 'frontend/src/shared/fieldset'

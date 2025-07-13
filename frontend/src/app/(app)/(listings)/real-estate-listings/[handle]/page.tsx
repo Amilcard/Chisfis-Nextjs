@@ -12,8 +12,8 @@ import {
   WaterEnergyIcon,
   WaterPoloIcon,
   Wifi01Icon,
-} from 'frontend/src/components/Icons'
-import StartRating from 'frontend/src/components/StartRating'
+} from '@/components/Icons'
+import StartRating from '@/components/StartRating'
 import { getListingReviews } from 'frontend/src/data/data'
 import { getRealEstateListingByHandle } from 'frontend/src/data/listings'
 import { Button } from 'frontend/src/shared/Button'

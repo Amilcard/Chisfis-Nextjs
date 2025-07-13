@@ -2,17 +2,15 @@
   "files.watcherExclude": {
     "**/node_modules/**": true,
     "**/.git/**": true,
-    "**/.next/**": true,
-    "**/frontend/**": true
+    "**/.next/**": true
   },
   "search.exclude": {
     "**/node_modules": true,
     "**/.git": true,
-    "**/.next": true,
-    "**/frontend": true
+    "**/.next": true
   },
   "typescript.tsserver.maxTsServerMemory": 4096,
-  "workbench.editor.showTabs": true,
+  "workbench.editor.showTabs": "multiple",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false
 }

@@ -4,11 +4,11 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { ApplicationLayout } from 'frontend/src/app/(app)/application-layout';
-import ActivityCard from 'frontend/src/components/ActivityCard';
-import Tabs from 'frontend/src/components/Tabs';
+import ActivityCard from '@/components/ActivityCard';
+import Tabs from '@/components/Tabs';
 import { ContactForm, InscriptionForm } from 'frontend/src/components';
-import QuickInscriptionForm from 'frontend/src/components/QuickInscriptionForm';
-import { getActivityById } from 'frontend/src/services/activityService';
+import QuickInscriptionForm from '@/components/QuickInscriptionForm';
+import { getActivityById } from '@/services/activityService';
 
 export default function ActivityDetailPage() {
   const params = useParams();

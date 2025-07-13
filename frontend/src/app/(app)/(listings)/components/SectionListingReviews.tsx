@@ -1,4 +1,4 @@
-import ListingReview from 'frontend/src/components/ListingReview'
+import ListingReview from '@/components/ListingReview'
 import { TListingReivew } from 'frontend/src/data/data'
 import ButtonCircle from 'frontend/src/shared/ButtonCircle'
 import ButtonSecondary from 'frontend/src/shared/ButtonSecondary'

@@ -1,6 +1,6 @@
 'use client'
 
-import NcInputNumber from 'frontend/src/components/NcInputNumber'
+import NcInputNumber from '@/components/NcInputNumber'
 import { Divider } from 'frontend/src/shared/divider'
 import Select from 'frontend/src/shared/Select'
 import T from 'frontend/src/utils/getT'

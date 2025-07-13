@@ -1,8 +1,8 @@
 'use client'
 
-import DatePickerCustomDay from 'frontend/src/components/DatePickerCustomDay'
-import DatePickerCustomHeaderTwoMonth from 'frontend/src/components/DatePickerCustomHeaderTwoMonth'
-import NcInputNumber from 'frontend/src/components/NcInputNumber'
+import DatePickerCustomDay from '@/components/DatePickerCustomDay'
+import DatePickerCustomHeaderTwoMonth from '@/components/DatePickerCustomHeaderTwoMonth'
+import NcInputNumber from '@/components/NcInputNumber'
 import { Divider } from 'frontend/src/shared/divider'
 import T from 'frontend/src/utils/getT'
 import Form from 'next/form'

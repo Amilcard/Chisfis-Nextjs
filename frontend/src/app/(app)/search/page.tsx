@@ -3,9 +3,9 @@
 
 import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
-import InklusifSearchForm from 'frontend/src/components/HeroSearchForm/InklusifSearchForm'
+import InklusifSearchForm from '@/components/HeroSearchForm/InklusifSearchForm'
 import dynamic from 'next/dynamic'
-import { fetchActivities } from 'frontend/src/services/activityService'
+import { fetchActivities } from '@/services/activityService'
 
 // Import dynamique pour éviter l'erreur SSR avec Leaflet
 const MapResults = dynamic(() => import('frontend/src/components/Map/MapResults'), {

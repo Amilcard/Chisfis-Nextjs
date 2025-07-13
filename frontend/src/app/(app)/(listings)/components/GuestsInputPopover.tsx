@@ -1,6 +1,6 @@
 'use client'
 
-import NcInputNumber from 'frontend/src/components/NcInputNumber'
+import NcInputNumber from '@/components/NcInputNumber'
 import { GuestsObject } from 'frontend/src/type'
 import T from 'frontend/src/utils/getT'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'

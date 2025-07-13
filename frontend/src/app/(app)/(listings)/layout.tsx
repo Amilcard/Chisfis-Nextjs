@@ -1,5 +1,5 @@
-import Header from 'frontend/src/components/Header/Header'
-import SectionOurFeatures from 'frontend/src/components/SectionOurFeatures'
+import Header from '@/components/Header/Header'
+import SectionOurFeatures from '@/components/SectionOurFeatures'
 import featuresImg from '@/images/our-features-2.png'
 import { ReactNode } from 'react'
 import { ApplicationLayout } from '../application-layout'

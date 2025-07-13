@@ -1,7 +1,7 @@
 'use client'
 
-import CarCardH from 'frontend/src/components/CarCardH'
-import ListingFilterTabs from 'frontend/src/components/ListingFilterTabs'
+import CarCardH from '@/components/CarCardH'
+import ListingFilterTabs from '@/components/ListingFilterTabs'
 import { TCarCategory } from 'frontend/src/data/categories'
 import { getCarListingFilterOptions, TCarListing } from 'frontend/src/data/listings'
 import { Divider } from 'frontend/src/shared/divider'

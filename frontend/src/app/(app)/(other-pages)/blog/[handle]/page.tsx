@@ -1,4 +1,4 @@
-import PostCard1 from 'frontend/src/components/blog/PostCard1'
+import PostCard1 from '@/components/blog/PostCard1'
 import { getBlogPosts, getBlogPostsByHandle } from 'frontend/src/data/data'
 import Avatar from 'frontend/src/shared/Avatar'
 import { BadgeButton } from 'frontend/src/shared/Badge'

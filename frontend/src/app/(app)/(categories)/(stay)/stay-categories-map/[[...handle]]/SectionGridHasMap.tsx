@@ -1,7 +1,7 @@
 'use client'
 
-import ListingFilterTabs from 'frontend/src/components/ListingFilterTabs'
-import StayCard2 from 'frontend/src/components/StayCard2'
+import ListingFilterTabs from '@/components/ListingFilterTabs'
+import StayCard2 from '@/components/StayCard2'
 import { TStayCategory } from 'frontend/src/data/categories'
 import { getStayListingFilterOptions, TStayListing } from 'frontend/src/data/listings'
 import { Divider } from 'frontend/src/shared/divider'

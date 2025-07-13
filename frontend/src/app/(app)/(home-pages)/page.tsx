@@ -2,11 +2,11 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import FeatureCard from 'frontend/src/components/FeatureCard';
-import CategoryExplorer from 'frontend/src/components/CategoryExplorer';
-import ActivityCarousel from 'frontend/src/components/ActivityCarousel';
-import { fetchActivities } from 'frontend/src/services/activityService';
-import useRandomActivity from 'frontend/src/hooks/useRandomActivity';
+import FeatureCard from '@/components/FeatureCard';
+import CategoryExplorer from '@/components/CategoryExplorer';
+import ActivityCarousel from '@/components/ActivityCarousel';
+import { fetchActivities } from '@/services/activityService';
+import useRandomActivity from '@/hooks/useRandomActivity';
 
 export default function HomePage() {
   const { activity, fetchRandomActivity } = useRandomActivity();

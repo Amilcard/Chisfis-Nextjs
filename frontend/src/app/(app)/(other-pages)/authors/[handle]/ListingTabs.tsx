@@ -1,9 +1,9 @@
 'use client'
 
-import CarCard from 'frontend/src/components/CarCard'
-import ExperiencesCard from 'frontend/src/components/ExperiencesCard'
-import PropertyCard from 'frontend/src/components/PropertyCard'
-import StayCard from 'frontend/src/components/StayCard'
+import CarCard from '@/components/CarCard'
+import ExperiencesCard from '@/components/ExperiencesCard'
+import PropertyCard from '@/components/PropertyCard'
+import StayCard from '@/components/StayCard'
 import {
   getCarListings,
   getExperienceListings,

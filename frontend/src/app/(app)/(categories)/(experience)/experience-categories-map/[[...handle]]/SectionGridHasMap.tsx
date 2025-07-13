@@ -1,7 +1,7 @@
 'use client'
 
-import ExperiencesCard from 'frontend/src/components/ExperiencesCard'
-import ListingFilterTabs from 'frontend/src/components/ListingFilterTabs'
+import ExperiencesCard from '@/components/ExperiencesCard'
+import ListingFilterTabs from '@/components/ListingFilterTabs'
 import { TExperienceCategory } from 'frontend/src/data/categories'
 import { getStayListingFilterOptions, TExperienceListing } from 'frontend/src/data/listings'
 import { Divider } from 'frontend/src/shared/divider'

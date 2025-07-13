@@ -1,4 +1,4 @@
-import Header from 'frontend/src/components/Header/Header'
+import Header from '@/components/Header/Header'
 import { Metadata } from 'next'
 import { ApplicationLayout } from '../application-layout'
 

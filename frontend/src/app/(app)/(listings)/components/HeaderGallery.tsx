@@ -1,14 +1,14 @@
 'use client'
 
-import { Button } from 'frontend/src/shared/Button'
-import ButtonClose from 'frontend/src/shared/ButtonClose'
-import T from 'frontend/src/utils/getT'
+import { Button } from '@/shared/Button'
+import ButtonClose from '@/shared/ButtonClose'
+import T from '@/utils/getT'
 import { CloseButton, Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 import { Squares2X2Icon } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 import useEmblaCarousel from 'embla-carousel-react'
 
-import { ThemeContext } from 'frontend/src/app/theme-provider'
+import { ThemeContext } from '@/app/theme-provider'
 import { EmblaOptionsType } from 'embla-carousel'
 import Image from 'next/image'
 import { useCallback, useContext, useEffect, useState } from 'react'

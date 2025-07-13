@@ -1,5 +1,5 @@
-import { Calendar01Icon, Comment01Icon, Timer02Icon } from 'frontend/src/components/Icons'
-import StartRating from 'frontend/src/components/StartRating'
+import { Calendar01Icon, Comment01Icon, Timer02Icon } from '@/components/Icons'
+import StartRating from '@/components/StartRating'
 import ButtonSecondary from 'frontend/src/shared/ButtonSecondary'
 import { Divider } from 'frontend/src/shared/divider'
 import { Link } from 'frontend/src/shared/link'

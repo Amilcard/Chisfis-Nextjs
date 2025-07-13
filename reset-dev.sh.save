@@ -1,0 +1,44 @@
+chmod +x reset-dev.sh
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "🚀 1) Suppression des caches et modules"
+rm -rf node_modules frontend/node_modules .next frontend/.next
+rm -f package-lock.json frontend/package-lock.json
+
+echo "🚀 2) (Re)Création de frontend/next.config.js"
+cat > frontend/next.config.js << 'EOL'
+const path = require('path');
+module.exports = {
+  webpack(config) {
+    config.resolve.alias['@'] = path.resolve(__dirname, 'src');
+    return config;
+  }
+};
+EOL
+
+echo "🚀 3) Copie des fichiers manquants en top-level src/"
+mkdir -p src/{shared,lib,hooks,components,services}
+cp frontend/src/shared/{divider,fieldset,Input,Select,SwitchDarkMode2}.tsx src/shared/
+cp frontend/src/lib/children-service.ts       src/lib/
+cp frontend/src/hooks/useRandomActivity.ts    src/hooks/
+cp -R frontend/src/components/.              src/components/
+cp -R frontend/src/services/.                src/services/
+
+echo "🚀 4) Mise à jour de tous les imports dans src/app"
+grep -Rl "from ['\"]frontend/src" src/app | xargs sed -i '' -E \
+  -e "s|from 'frontend/src/components/([^']*)'|from '@/components/\\1'|g" \
+  -e "s|from \"frontend/src/components/([^\"]*)\"|from \"@/components/\\1\"|g" \
+  -e "s|from 'frontend/src/services/([^']*)'|from '@/services/\\1'|g" \
+  -e "s|from \"frontend/src/services/([^\"]*)\"|from \"@/services/\\1\"|g" \
+  -e "s|from 'frontend/src/shared/([^']*)'|from '@/shared/\\1'|g" \
+  -e "s|from \"frontend/src/shared/([^\"]*)\"|from \"@/shared/\\1\"|g" \
+  -e "s|from 'frontend/src/lib/([^']*)'|from '@/lib/\\1'|g" \
+  -e "s|from \"frontend/src/lib/([^\"]*)\"|from \"@/lib/\\1\"|g" \
+  -e "s|from 'frontend/src/hooks/([^']*)'|from '@/hooks/\\1'|g" \
+  -e "s|from \"frontend/src/hooks/([^\"]*)\"|from \"@/hooks/\\1\"|g"
+
+echo "🚀 5) Réinstallation et lancement"
+npm install
+npm run dev --prefix frontend
+mod +x reset-dev.sh

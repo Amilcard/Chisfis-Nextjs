@@ -1,7 +1,7 @@
 'use client'
 
-import DatePickerCustomDay from 'frontend/src/components/DatePickerCustomDay'
-import DatePickerCustomHeaderTwoMonth from 'frontend/src/components/DatePickerCustomHeaderTwoMonth'
+import DatePickerCustomDay from '@/components/DatePickerCustomDay'
+import DatePickerCustomHeaderTwoMonth from '@/components/DatePickerCustomHeaderTwoMonth'
 import { Divider } from 'frontend/src/shared/divider'
 import { useState } from 'react'
 import DatePicker from 'react-datepicker'

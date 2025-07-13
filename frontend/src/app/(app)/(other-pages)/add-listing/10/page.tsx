@@ -1,4 +1,4 @@
-import StayCard from 'frontend/src/components/StayCard'
+import StayCard from '@/components/StayCard'
 import { getStayListings } from 'frontend/src/data/listings'
 import ButtonPrimary from 'frontend/src/shared/ButtonPrimary'
 import ButtonSecondary from 'frontend/src/shared/ButtonSecondary'

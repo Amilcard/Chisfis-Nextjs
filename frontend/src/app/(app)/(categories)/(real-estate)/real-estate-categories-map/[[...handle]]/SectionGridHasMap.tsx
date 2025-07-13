@@ -1,7 +1,7 @@
 'use client'
 
-import ListingFilterTabs from 'frontend/src/components/ListingFilterTabs'
-import PropertyCardH from 'frontend/src/components/PropertyCardH'
+import ListingFilterTabs from '@/components/ListingFilterTabs'
+import PropertyCardH from '@/components/PropertyCardH'
 import { TRealEstateCategory } from 'frontend/src/data/categories'
 import { getRealEstateListingFilterOptions, TRealEstateListing } from 'frontend/src/data/listings'
 import { Divider } from 'frontend/src/shared/divider'

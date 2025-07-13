@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import SocialButton from 'frontend/src/components/SocialButton';
+import SocialButton from '@/components/SocialButton';
 
 interface SignInFormData {
   email: string;

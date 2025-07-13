@@ -1,0 +1,16 @@
+src/
+├── pages/api/auth/
+│   └── [...nextauth].ts                 # Configuration NextAuth
+├── app/
+│   ├── layout.tsx                       # Provider NextAuth ajouté
+│   ├── (auth)/
+│   │   ├── layout.tsx                   # Layout centré pour auth
+│   │   └── auth/
+│   │       ├── signin/page.tsx          # Page de connexion
+│   │       └── signup/page.tsx          # Page d'inscription
+│   └── api/auth/register/route.ts       # API d'inscription
+├── components/
+│   ├── SocialButton.tsx                 # Boutons OAuth
+│   ├── ProgressBar.tsx                  # Barre de progression
+│   └── NextAuthProvider.tsx             # Provider NextAuth
+└── .env.local                           # Variables d'environnement

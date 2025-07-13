@@ -1,4 +1,4 @@
-import { ImageAdd02Icon } from 'frontend/src/components/Icons'
+import { ImageAdd02Icon } from '@/components/Icons'
 import avatar from '@/images/avatars/Image-1.png'
 import Avatar from 'frontend/src/shared/Avatar'
 import ButtonPrimary from 'frontend/src/shared/ButtonPrimary'

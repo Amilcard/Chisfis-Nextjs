@@ -6,9 +6,9 @@ import 'rc-slider/assets/index.css'
 import { useEffect, useState } from 'react'
 import CustomizeControl from './customize-control'
 import ThemeProvider from './theme-provider'
-import Header from 'frontend/src/components/Common/Header'
-import Footer from 'frontend/src/components/Common/Footer'
-import { AsideProvider } from 'frontend/src/components/aside/aside'
+import Header from '@/components/Common/Header'
+import Footer from '@/components/Common/Footer'
+import { AsideProvider } from '@/components/aside/aside'
 
 const roboto = Roboto({ 
   subsets: ['latin'], 

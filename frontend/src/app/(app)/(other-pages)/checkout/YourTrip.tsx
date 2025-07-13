@@ -1,7 +1,7 @@
 'use client'
 
-import ModalSelectDate from 'frontend/src/components/ModalSelectDate'
-import ModalSelectGuests from 'frontend/src/components/ModalSelectGuests'
+import ModalSelectDate from '@/components/ModalSelectDate'
+import ModalSelectGuests from '@/components/ModalSelectGuests'
 import { GuestsObject } from 'frontend/src/type'
 import converSelectedDateToString from 'frontend/src/utils/converSelectedDateToString'
 import T from 'frontend/src/utils/getT'

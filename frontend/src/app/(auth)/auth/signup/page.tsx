@@ -5,8 +5,8 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
-import SocialButton from 'frontend/src/components/SocialButton';
-import ProgressBar from 'frontend/src/components/ProgressBar';
+import SocialButton from '@/components/SocialButton';
+import ProgressBar from '@/components/ProgressBar';
 
 interface SignUpStep1Data {
   firstName: string;
